@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/Users/thomasampadu/Documents/NJIT 2025-26/IS 601 851/Module11/IS601Module11/venv/bin/python" "$0" "$@"
+'''exec' "/Users/thomasampadu/Documents/NJIT 2025-26/IS 601 851/Module12/IS601Module12/venv/bin/python3.11" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re

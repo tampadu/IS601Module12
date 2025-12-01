@@ -1,35 +1,35 @@
 name: Python Tests
 
 on:
-push:
-branches: [ main ]
-pull_request:
-branches: [ main ]
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-test:
-runs-on: ubuntu-latest
+  test:
+    runs-on: ubuntu-latest
 
-steps:  
-- name: Checkout repository  
-  uses: actions/checkout@v3  
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-- name: Set up Python  
-  uses: actions/setup-python@v4  
-  with:  
-    python-version: 3.11  
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
 
-- name: Install dependencies  
-  run: |  
-    python -m venv venv  
-    source venv/bin/activate  
-    python -m pip install --upgrade pip  
-    pip install -r requirements.txt  
+    - name: Install dependencies
+      run: |
+        python -m venv venv
+        source venv/bin/activate
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
 
-- name: Set PYTHONPATH to repo root  
-  run: echo "PYTHONPATH=${{ github.workspace }}" >> $GITHUB_ENV  
+    - name: Set PYTHONPATH
+      run: echo "PYTHONPATH=${{ github.workspace }}" >> $GITHUB_ENV
 
-- name: Run tests  
-  run: |  
-    source venv/bin/activate  
-    pytest --maxfail=1 --disable-warnings -v  
+    - name: Run tests
+      run: |
+        source venv/bin/activate
+        pytest --maxfail=1 --disable-warnings -v
